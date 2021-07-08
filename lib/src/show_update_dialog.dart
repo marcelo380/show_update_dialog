@@ -38,17 +38,25 @@ class ShowUpdateDialog {
   Future fetchVersionInfo() =>
       getVersionInfo(androidId, iOSId, iOSAppStoreCountry);
 
-  void showDialogIfNecessary({
+  void showSimplesDialog(context, {bool forceUpdate = false}) async {
+    final VersionModel? versionStatus = await fetchVersionInfo();
+    if (versionStatus != null && versionStatus.updateExist) {
+      showCustomDialogUpdate(
+          context: context,
+          versionStatus: versionStatus,
+          forceUpdate: forceUpdate);
+    }
+  }
+
+  void showCustomDialogUpdate({
     required BuildContext context,
     required VersionModel versionStatus,
     String title = 'Mantenha-se atualizado.',
     String? dialogText,
     String buttonText = 'Atualizar',
-    Color buttonColor = Colors.pink,
-    bool allowDismissal = true,
-    String dismissButtonText = 'Maybe Later',
-    VoidCallback? dismissAction,
+    Color buttonColor = const Color(0xFF1E88E5),
     bool forceUpdate = false,
+    Widget? bodyOveride,
   }) async {
     if (versionStatus != null && versionStatus.updateExist) {
       var route = MaterialPageRoute(
@@ -59,6 +67,7 @@ class ShowUpdateDialog {
           currentVersion: versionStatus.localVersion,
           storeVersion: versionStatus.storeVersion,
           releaseNotes: versionStatus.releaseNotes,
+          bodyOveride: bodyOveride,
           storeAction: () => _launchAppStore(versionStatus.appStoreLink),
         ),
       );

@@ -25,15 +25,21 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   verifyVersion() async {
-    final newVersion = ShowUpdateDialog(
+    final versionCheck = ShowUpdateDialog(
         iOSId: 'br.com.sbsistemas.simplescteapp',
         androidId: 'br.com.sbsistemas.simplescteapp',
         iOSAppStoreCountry: 'BR');
 
-    final VersionModel vs = await newVersion.fetchVersionInfo();
+    final VersionModel vs = await versionCheck.fetchVersionInfo();
 
-    print(vs);
-    newVersion.showDialogIfNecessary(context: context, versionStatus: vs);
+    versionCheck.showCustomDialogUpdate(
+      context: context,
+      versionStatus: vs,
+    );
+
+    //versão simples de chamar o alerta
+    //versionCheck.showSimplesDialog(context);
+    // versionCheck.showDialogIfNecessary(context: context, versionStatus: vs);
   }
 
   @override
