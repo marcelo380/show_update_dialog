@@ -52,7 +52,6 @@ class ShowUpdateDialog {
     required BuildContext context,
     required VersionModel versionStatus,
     String title = 'Mantenha-se atualizado.',
-    String? dialogText,
     String buttonText = 'Atualizar',
     Color buttonColor = const Color(0xFF1E88E5),
     bool forceUpdate = false,

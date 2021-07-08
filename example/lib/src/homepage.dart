@@ -32,14 +32,65 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
 
-    versionCheck.showCustomDialogUpdate(
-      context: context,
-      versionStatus: vs,
-    );
+    int typeDemo = 0; // 0 simples, 1 custom dialog, 2 overide
 
-    //versão simples de chamar o alerta
-    //versionCheck.showSimplesDialog(context);
-    // versionCheck.showDialogIfNecessary(context: context, versionStatus: vs);
+    switch (typeDemo) {
+      case 0:
+        versionCheck.showSimplesDialog(context);
+        break;
+      case 1:
+        versionCheck.showCustomDialogUpdate(
+          context: context,
+          versionStatus: vs,
+          buttonColor: Colors.black,
+          buttonText: "Update :D",
+          title: "Estamos mais novos do que nunca!",
+          forceUpdate: true,
+        );
+        break;
+      case 2:
+        versionCheck.showCustomDialogUpdate(
+          context: context,
+          versionStatus: vs,
+          buttonText: "Update",
+          buttonColor: Colors.green,
+          bodyOveride: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.update,
+                    size: 150,
+                    color: Colors.green,
+                  ),
+                ],
+              ),
+              Text(
+                "Please update your app",
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+              ),
+              Text(
+                "Local version: ${vs.localVersion}",
+                style: TextStyle(fontSize: 17),
+              ),
+              Text(
+                "Store version: ${vs.storeVersion}",
+                style: TextStyle(fontSize: 17),
+              ),
+              SizedBox(height: 30),
+              Text(
+                "${vs.releaseNotes}",
+                style: TextStyle(fontSize: 15),
+              ),
+            ],
+          ),
+        );
+
+        break;
+      default:
+    }
   }
 
   @override
