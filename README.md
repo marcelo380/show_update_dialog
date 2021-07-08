@@ -68,7 +68,7 @@ verifyVersion() async {
 
 ### Implementação com widget customizado
 
-Está é uma das formas de alterar a tela de atualização. 
+Implementando destá forma você pode refazer a tela da forma que preferir basta passar um Widget. 
 ```dart
   verifyVersion() async {
     final versionCheck = ShowUpdateDialog(
