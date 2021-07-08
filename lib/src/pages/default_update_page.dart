@@ -19,35 +19,89 @@ class _DefaultUpdatePageState extends State<DefaultUpdatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.close,
+            color: Colors.black,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      backgroundColor: Colors.white,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.top,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Versão atual: ${widget.currentVersion}")],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Versão disponivel: ${widget.storeVersion}")],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text(" ${widget.releaseNotes}")],
-          ),
-          SizedBox(
+          Container(
             height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("---------------------")],
+            children: [
+              Image.asset(
+                "resources/download.png",
+                package: 'show_update_dialog',
+                height: MediaQuery.of(context).size.width / 1.2,
+              ),
+            ],
           ),
-          RaisedButton(
-            child: Text("Atualizar"),
-            onPressed: widget.storeAction,
-          )
+          Text(
+            "Mantenha-se atualizado.",
+            style: TextStyle(
+                fontSize: 18,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w700),
+          ),
+          SizedBox(height: 2),
+          Text(
+            widget.releaseNotes!,
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey[600],
+            ),
+          ),
+          SizedBox(height: 15),
+          Text(
+            "Versão atual: ${widget.currentVersion}",
+            style: TextStyle(fontSize: 15, color: Colors.grey[700]),
+          ),
+          Text(
+            "Versão da loja: ${widget.storeVersion}",
+            style: TextStyle(fontSize: 15, color: Colors.grey[700]),
+          ),
+          SizedBox(
+            height: 80,
+          ),
+        ],
+      ),
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ButtonUpdate(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.5,
+          ),
         ],
       ),
     );
   }
+
+  Widget ButtonUpdate() => MaterialButton(
+        height: 58,
+        minWidth: 340,
+        shape:
+            RoundedRectangleBorder(borderRadius: new BorderRadius.circular(12)),
+        onPressed: widget.storeAction,
+        child: Text(
+          "Atualizar",
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+          ),
+        ),
+        color: Colors.blue[600],
+      );
 }

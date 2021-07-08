@@ -35,20 +35,31 @@ class ShowUpdateDialog {
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  showDialogIfNecessary({required BuildContext context}) async {
+  showDialogIfNecessary(
+      {required BuildContext context, bool forceUpdate = false}) async {
     final VersionStatus? versionStatus =
         await getVersionStatus(androidId, iOSId, iOSAppStoreCountry);
     if (versionStatus != null && versionStatus.updateExist) {
-      Navigator.pushReplacement(
+      var route = MaterialPageRoute(
+        builder: (context) => DefaultUpdatePage(
+          currentVersion: versionStatus.localVersion,
+          storeVersion: versionStatus.storeVersion,
+          releaseNotes: versionStatus.releaseNotes,
+          storeAction: () => _launchAppStore(versionStatus.appStoreLink),
+        ),
+      );
+
+      if (forceUpdate) {
+        Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) => DefaultUpdatePage(
-              currentVersion: versionStatus.localVersion,
-              storeVersion: versionStatus.storeVersion,
-              releaseNotes: versionStatus.releaseNotes,
-              storeAction: () => _launchAppStore(versionStatus.appStoreLink),
-            ),
-          ));
+          route,
+        );
+      } else {
+        Navigator.push(
+          context,
+          route,
+        );
+      }
     }
   }
 
