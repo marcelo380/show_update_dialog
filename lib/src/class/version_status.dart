@@ -1,4 +1,4 @@
-class VersionStatus {
+class VersionModel {
   /// Retorna versão atual do aplicativo
   final String localVersion;
 
@@ -33,7 +33,7 @@ class VersionStatus {
     }
   }
 
-  VersionStatus({
+  VersionModel({
     required this.localVersion,
     required this.storeVersion,
     required this.appStoreLink,

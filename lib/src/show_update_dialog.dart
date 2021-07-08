@@ -35,13 +35,27 @@ class ShowUpdateDialog {
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  showDialogIfNecessary(
-      {required BuildContext context, bool forceUpdate = false}) async {
-    final VersionStatus? versionStatus =
-        await getVersionStatus(androidId, iOSId, iOSAppStoreCountry);
+  Future fetchVersionInfo() =>
+      getVersionInfo(androidId, iOSId, iOSAppStoreCountry);
+
+  void showDialogIfNecessary({
+    required BuildContext context,
+    required VersionModel versionStatus,
+    String title = 'Mantenha-se atualizado.',
+    String? dialogText,
+    String buttonText = 'Atualizar',
+    Color buttonColor = Colors.pink,
+    bool allowDismissal = true,
+    String dismissButtonText = 'Maybe Later',
+    VoidCallback? dismissAction,
+    bool forceUpdate = false,
+  }) async {
     if (versionStatus != null && versionStatus.updateExist) {
       var route = MaterialPageRoute(
         builder: (context) => DefaultUpdatePage(
+          title: title,
+          buttonText: buttonText,
+          buttonColor: buttonColor,
           currentVersion: versionStatus.localVersion,
           storeVersion: versionStatus.storeVersion,
           releaseNotes: versionStatus.releaseNotes,
@@ -61,31 +75,6 @@ class ShowUpdateDialog {
         );
       }
     }
-  }
-
-  void showUpdateDialog({
-    required BuildContext context,
-    required VersionStatus versionStatus,
-    String dialogTitle = 'Update Available',
-    String? dialogText,
-    String updateButtonText = 'Update',
-    bool allowDismissal = true,
-    String dismissButtonText = 'Maybe Later',
-    VoidCallback? dismissAction,
-  }) async {
-    final dialogTitleWidget = Text(dialogTitle);
-    final dialogTextWidget = Text(
-      dialogText ??
-          'You can now update this app from ${versionStatus.localVersion} to ${versionStatus.storeVersion}',
-    );
-
-    final updateButtonTextWidget = Text(updateButtonText);
-    final updateAction = () {
-      _launchAppStore(versionStatus.appStoreLink);
-      if (allowDismissal) {
-        Navigator.of(context, rootNavigator: true).pop();
-      }
-    };
   }
 
   Future<bool> _rememberIfNecessary() async {

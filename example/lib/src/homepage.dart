@@ -21,12 +21,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    verifyVersion();
+  }
+
+  verifyVersion() async {
     final newVersion = ShowUpdateDialog(
         iOSId: 'br.com.sbsistemas.simplescteapp',
         androidId: 'br.com.sbsistemas.simplescteapp',
         iOSAppStoreCountry: 'BR');
 
-    newVersion.showDialogIfNecessary(context: context);
+    final VersionModel vs = await newVersion.fetchVersionInfo();
+
+    print(vs);
+    newVersion.showDialogIfNecessary(context: context, versionStatus: vs);
   }
 
   @override

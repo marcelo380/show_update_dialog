@@ -5,11 +5,18 @@ class DefaultUpdatePage extends StatefulWidget {
   String? storeVersion;
   VoidCallback? storeAction;
   String? releaseNotes;
+  String? title;
+  String? buttonText;
+  Color? buttonColor;
+
   DefaultUpdatePage(
       {@required this.currentVersion,
       @required this.storeVersion,
       @required this.storeAction,
-      @required this.releaseNotes});
+      @required this.releaseNotes,
+      @required this.buttonText,
+      @required this.buttonColor,
+      @required this.title});
 
   @override
   _DefaultUpdatePageState createState() => _DefaultUpdatePageState();
@@ -49,7 +56,7 @@ class _DefaultUpdatePageState extends State<DefaultUpdatePage> {
             ],
           ),
           Text(
-            "Mantenha-se atualizado.",
+            widget.title!,
             style: TextStyle(
                 fontSize: 18,
                 fontStyle: FontStyle.italic,
@@ -96,12 +103,12 @@ class _DefaultUpdatePageState extends State<DefaultUpdatePage> {
             RoundedRectangleBorder(borderRadius: new BorderRadius.circular(12)),
         onPressed: widget.storeAction,
         child: Text(
-          "Atualizar",
+          widget.buttonText!,
           style: TextStyle(
             fontSize: 24,
             color: Colors.white,
           ),
         ),
-        color: Colors.blue[600],
+        color: widget.buttonColor,
       );
 }

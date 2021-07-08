@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:show_update_dialog/src/class/version_status.dart';
 
-Future<VersionStatus?> getVersionStatus(
+Future<VersionModel?> getVersionInfo(
     String? androidId, String? iOSId, String? iOSAppStoreCountry) async {
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   if (Platform.isIOS) {
@@ -25,7 +25,7 @@ Future<VersionStatus?> getVersionStatus(
 
 /// iOS info is fetched by using the iTunes lookup API, which returns a
 /// JSON document.
-Future<VersionStatus?> _getiOSStoreVersion(
+Future<VersionModel?> _getiOSStoreVersion(
     PackageInfo packageInfo, String? iOSId, String? iOSAppStoreCountry) async {
   final id = iOSId ?? packageInfo.packageName;
   final parameters = {"bundleId": "$id"};
@@ -39,7 +39,7 @@ Future<VersionStatus?> _getiOSStoreVersion(
     return null;
   }
   final jsonObj = json.decode(response.body);
-  return VersionStatus(
+  return VersionModel(
     localVersion: packageInfo.version,
     storeVersion: jsonObj['results'][0]['version'],
     appStoreLink: jsonObj['results'][0]['trackViewUrl'],
@@ -48,7 +48,7 @@ Future<VersionStatus?> _getiOSStoreVersion(
 }
 
 /// Informações da playstore
-Future<VersionStatus?> _getAndroidStoreVersion(
+Future<VersionModel?> _getAndroidStoreVersion(
     PackageInfo packageInfo, String? androidId) async {
   final id = androidId ?? packageInfo.packageName;
   final uri =
@@ -75,7 +75,7 @@ Future<VersionStatus?> _getAndroidStoreVersion(
       ?.querySelector('.DWPxHb')
       ?.text;
 
-  return VersionStatus(
+  return VersionModel(
     localVersion: packageInfo.version,
     storeVersion: storeVersion,
     appStoreLink: uri.toString(),
