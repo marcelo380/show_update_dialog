@@ -1,6 +1,6 @@
 # show_update_dialog
 
-Este pacote tem como intuito ajudar a manter aplicativos Android e IOS atualizados, permitindo com que você configure e avise atumaticamente seus usuários sobre atualizações.
+Este pacote tem como intuito ajudar a manter aplicativos Android e IOS atualizados, permitindo com que você configure e avise automaticamente seus usuários sobre atualizações.
 Basta inserir o bundleID da appleStore e  androidId que o package faz comunicação direta comparando a versão da loja com a local. 
 
 [<img src="readme_resources/sc01.png" width="300"/>](readme_resources/sc01.png.png)[<img src="readme_resources/sc02.png" width="300"/>](readme_resources/sc02.png.png)
