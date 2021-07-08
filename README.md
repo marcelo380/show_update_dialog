@@ -17,7 +17,7 @@ title    | showCustomDialogUpdate  | É usado para mudar o titulo padrão do avi
 buttonColor    | showCustomDialogUpdate  | Pode passar uma cor para o botão de atulização ex: `Colors.blue`
 buttonText    | showCustomDialogUpdate  | É utilizado para alterar o  texto do botão de atualização.
 forceUpdate    | ShowUpdateDialog, showCustomDialogUpdate  | Marcar `true` para esconder botão e impedir usuário de fechar a janela de atualização, forçando assim o usuário a atualizar o aplicativo. 
-bodyOveride    | showCustomDialogUpdate  | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
+bodyoverride    | showCustomDialogUpdate  | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
 
 
 ### Para começar
@@ -83,7 +83,7 @@ Implementando destá forma você pode refazer a tela da forma que preferir basta
       versionStatus: vs,
       buttonText: "Update",
       buttonColor: Colors.green,
-      bodyOveride: Column(
+      bodyoverride: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
@@ -159,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
 
-    int typeDemo = 0; // 0 simples, 1 custom dialog, 2 overide
+    int typeDemo = 0; // 0 simples, 1 custom dialog, 2 override
 
     switch (typeDemo) {
       case 0:
@@ -181,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
           versionStatus: vs,
           buttonText: "Update",
           buttonColor: Colors.green,
-          bodyOveride: Column(
+          bodyoverride: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(

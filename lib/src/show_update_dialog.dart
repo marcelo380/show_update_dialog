@@ -55,7 +55,7 @@ class ShowUpdateDialog {
     String buttonText = 'Atualizar',
     Color buttonColor = const Color(0xFF1E88E5),
     bool forceUpdate = false,
-    Widget? bodyOveride,
+    Widget? bodyoverride,
   }) async {
     if (versionStatus != null && versionStatus.updateExist) {
       var route = MaterialPageRoute(
@@ -66,7 +66,7 @@ class ShowUpdateDialog {
           currentVersion: versionStatus.localVersion,
           storeVersion: versionStatus.storeVersion,
           releaseNotes: versionStatus.releaseNotes,
-          bodyOveride: bodyOveride,
+          bodyoverride: bodyoverride,
           storeAction: () => _launchAppStore(versionStatus.appStoreLink),
         ),
       );

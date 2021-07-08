@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
 
-    int typeDemo = 0; // 0 simples, 1 custom dialog, 2 overide
+    int typeDemo = 0; // 0 simples, 1 custom dialog, 2 override
 
     switch (typeDemo) {
       case 0:
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
           versionStatus: vs,
           buttonText: "Update",
           buttonColor: Colors.green,
-          bodyOveride: Column(
+          bodyoverride: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(

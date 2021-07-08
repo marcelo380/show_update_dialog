@@ -8,7 +8,7 @@ class DefaultUpdatePage extends StatefulWidget {
   String? title;
   String? buttonText;
   Color? buttonColor;
-  Widget? bodyOveride;
+  Widget? bodyoverride;
   DefaultUpdatePage({
     @required this.currentVersion,
     @required this.storeVersion,
@@ -17,7 +17,7 @@ class DefaultUpdatePage extends StatefulWidget {
     @required this.buttonText,
     @required this.buttonColor,
     @required this.title,
-    @required this.bodyOveride,
+    @required this.bodyoverride,
   });
 
   @override
@@ -40,7 +40,7 @@ class _DefaultUpdatePageState extends State<DefaultUpdatePage> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: widget.bodyOveride == null
+      body: widget.bodyoverride == null
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               //mainAxisAlignment: MainAxisAlignment.top,
@@ -87,7 +87,7 @@ class _DefaultUpdatePageState extends State<DefaultUpdatePage> {
                 ),
               ],
             )
-          : widget.bodyOveride,
+          : widget.bodyoverride,
       bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
