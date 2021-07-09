@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:show_update_dialog/main.dart';
+import 'package:show_update_dialog/show_update_dialog.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, this.title = ''}) : super(key: key);
