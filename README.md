@@ -3,22 +3,21 @@
 Este pacote tem como objetivo ajudar a manter aplicativos Android e IOS atualizados, permitindo fazer a configuração para avisar automaticamente seus usuários sobre as atualizações.
 Basta inserir o bundleID da appleStore e  androidId que o package faz comunicação direta comparando a versão da loja com a local. 
 
-[<img src="readme_resources/sc01.png" width="300"/>](readme_resources/sc01.png)[<img src="readme_resources/sc02.png" width="300"/>](readme_resources/sc02.png)
-
+[<img src="https://github.com/marcelo380/show_update_dialog/blob/main/readme_resources/sc01.png?raw=true" width="300"/>](https://github.com/marcelo380/show_update_dialog/blob/main/readme_resources/sc01.png?raw=true)
 ## Referências 
 
 Existe varias propriedades para customizar, aqui está uma ficha rápida:
-Propriedade | Disponível em | O que faz?
--------- | ------- | ---------------
-iOSId    | ShowUpdateDialog  | BundleID da appstore, responsável por buscar versão e notas da loja.
-androidId    | ShowUpdateDialog  | AndroidID playstore, responsável por buscar a versão e notas na playStore.
-iOSAppStoreCountry    | ShowUpdateDialog  | Atenção você precisa definir esse parametro se seu app estiver publicado fora dos EUA. Basta informar a sigla do pais ex: 'BR', consulte em:  [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-title    | showCustomDialogUpdate  | É usado para mudar o titulo padrão do aviso da atualização.
-buttonColor    | showCustomDialogUpdate  | Pode passar uma cor para o botão de atulização ex: `Colors.blue`
-buttonText    | showCustomDialogUpdate  | É utilizado para alterar o  texto do botão de atualização.
-forceUpdate    | ShowUpdateDialog, showCustomDialogUpdate  | Marcar `true` para esconder botão e impedir usuário de fechar a janela de atualização, forçando assim o usuário a atualizar o aplicativo. 
-bodyoverride    | showCustomDialogUpdate  | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
-overridebottomNavigationBar    | showCustomDialogUpdate  | Sobrescreve a bottomNavigationBar que contem o botão de atualizar. 
+Propriedade  | O que faz?
+--------  | ---------------
+iOSId      | BundleID da appstore, responsável por buscar versão e notas da loja.
+androidId   | AndroidID playstore, responsável por buscar a versão e notas na playStore.
+iOSAppStoreCountry     | Atenção você precisa definir esse parametro se seu app estiver publicado fora dos EUA. Basta informar a sigla do pais ex: 'BR', consulte em:  [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+title     | É usado para mudar o titulo padrão do aviso da atualização.
+buttonColor     | Pode passar uma cor para o botão de atulização ex: `Colors.blue`
+buttonText     | É utilizado para alterar o  texto do botão de atualização.
+forceUpdate    | Marcar `true` para esconder botão e impedir usuário de fechar a janela de atualização, forçando assim o usuário a atualizar o aplicativo. 
+bodyoverride     | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
+overridebottomNavigationBar    | Sobrescreve a bottomNavigationBar que contem o botão de atualizar. 
 
 
 ## Variavel do status da versão
@@ -100,6 +99,8 @@ verifyVersion() async {
 ```
 
 ### Implementação com widget customizado
+[<img src="https://github.com/marcelo380/show_update_dialog/blob/main/readme_resources/sc02.png?raw=true" width="300"/>](https://github.com/marcelo380/show_update_dialog/blob/main/readme_resources/sc02.png?raw=true)
+
 
 Implementando destá forma você pode refazer a tela da forma que preferir basta passar um Widget.
 ```dart
