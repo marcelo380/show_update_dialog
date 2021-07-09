@@ -6,7 +6,8 @@ Basta inserir o bundleID da appleStore e  androidId que o package faz comunicaç
 [<img src="https://github.com/marcelo380/show_update_dialog/blob/main/readme_resources/sc01.png?raw=true" width="300"/>](https://github.com/marcelo380/show_update_dialog/blob/main/readme_resources/sc01.png?raw=true)
 ## Referências 
 
-Existe varias propriedades para customizar, aqui está uma ficha rápida:
+Existe varias propriedades para customizar, você tambem pode utilizar variaveis de retorno.
+Aqui está uma ficha rápida:
 Propriedade  | O que faz?
 --------  | ---------------
 iOSId      | BundleID da appstore, responsável por buscar versão e notas da loja.
@@ -17,18 +18,11 @@ buttonColor     | Pode passar uma cor para o botão de atulização ex: `Colors.
 buttonText     | É utilizado para alterar o  texto do botão de atualização.
 forceUpdate    | Marcar `true` para esconder botão e impedir usuário de fechar a janela de atualização, forçando assim o usuário a atualizar o aplicativo. 
 bodyoverride     | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
+**Variavel** | **o que faz?**
 overridebottomNavigationBar    | Sobrescreve a bottomNavigationBar que contem o botão de atualizar. 
-
-
-## Variavel do status da versão
-
-Você pode utilizar informações da versão do seu app e loja de outras formas.
-
-Variavel |  O que faz?
--------- | ---------------
 localVersion    | Retorna versão local do seu aplicativo.
 appStoreLink    | Retorna o link da loja baseado no sistema.
-storeVersion    | Ultima versão da loja de aplicativos.
+storeVersion    | Retorna ultima versão da loja de aplicativos.
 releaseNotes    | Retorna as notas de atualizações da loja de aplicativo.
 
 Exemplo de implementação:
