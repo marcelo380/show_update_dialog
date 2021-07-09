@@ -40,7 +40,7 @@ Você pode utilizar informações da versão do seu app e loja de outras formas,
 ```
 
 Variavel |  O que faz
--------- |-------- | ---------------
+-------- | ---------------
 localVersion    | Retorna versão local do seu aplicativo.
 appStoreLink    | Retorna o link da loja baseado no sistema.
 storeVersion    | Ultima versão da loja de aplicativos.
