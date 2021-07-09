@@ -23,7 +23,16 @@ overridebottomNavigationBar    | showCustomDialogUpdate  | Sobrescreve a bottomN
 
 ## Variavel do status da versão
 
-Você pode utilizar informações da versão do seu app e loja de outras formas, para pegar eles basta fazer o seguinte:
+Você pode utilizar informações da versão do seu app e loja de outras formas.
+
+Variavel |  O que faz
+-------- | ---------------
+localVersion    | Retorna versão local do seu aplicativo.
+appStoreLink    | Retorna o link da loja baseado no sistema.
+storeVersion    | Ultima versão da loja de aplicativos.
+releaseNotes    | Retorna as notas de atualizações da loja de aplicativo.
+
+Exemplo de implementação:
 
 ```dart
     final versionCheck = ShowUpdateDialog(
@@ -39,12 +48,7 @@ Você pode utilizar informações da versão do seu app e loja de outras formas,
     print(vs.releaseNotes);
 ```
 
-Variavel |  O que faz
--------- | ---------------
-localVersion    | Retorna versão local do seu aplicativo.
-appStoreLink    | Retorna o link da loja baseado no sistema.
-storeVersion    | Ultima versão da loja de aplicativos.
-releaseNotes    | Retorna as notas de atualizações da loja de aplicativo.
+
 
 
 
