@@ -3,13 +3,13 @@
 Este pacote tem como objetivo ajudar a manter aplicativos Android e IOS atualizados, permitindo fazer a configuração para avisar automaticamente seus usuários sobre as atualizações.
 Basta inserir o bundleID da appleStore e  androidId que o package faz comunicação direta comparando a versão da loja com a local. 
 
-[<img src="readme_resources/sc01.png" width="300"/>](readme_resources/sc01.png.png)[<img src="readme_resources/sc02.png" width="300"/>](readme_resources/sc02.png.png)
+[<img src="readme_resources/sc01.png" width="300"/>](readme_resources/sc01.png)[<img src="readme_resources/sc02.png" width="300"/>](readme_resources/sc02.png)
 
 ## Referências 
 
 Existe varias propriedades para customizar, aqui está uma ficha rápida:
 Propriedade | Disponível em | O que faz?
--------- |-------- | ---------------
+-------- | ------- | ---------------
 iOSId    | ShowUpdateDialog  | BundleID da appstore, responsável por buscar versão e notas da loja.
 androidId    | ShowUpdateDialog  | AndroidID playstore, responsável por buscar a versão e notas na playStore.
 iOSAppStoreCountry    | ShowUpdateDialog  | Atenção você precisa definir esse parametro se seu app estiver publicado fora dos EUA. Basta informar a sigla do pais ex: 'BR', consulte em:  [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
