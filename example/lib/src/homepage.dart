@@ -26,13 +26,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   verifyVersion() async {
     final versionCheck = ShowUpdateDialog(
-        iOSId: 'com.yelp.yelpiphone',
-        androidId: 'com.yelp.yelpiphone',
+        iOSId: 'com.dts.freefireth',
+        androidId: 'com.dts.freefireth',
         iOSAppStoreCountry: 'BR');
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
 
-    int typeDemo = 0; // 0 simples, 1 custom dialog, 2 override
+    int typeDemo = 2; // 0 simples, 1 custom dialog, 2 override
 
     switch (typeDemo) {
       case 0:

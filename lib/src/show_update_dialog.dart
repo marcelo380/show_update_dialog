@@ -56,7 +56,7 @@ class ShowUpdateDialog {
     Color buttonColor = const Color(0xFF1E88E5),
     bool forceUpdate = false,
     Widget? bodyoverride,
-    BottomNavigationBar? overridebottomNavigationBar,
+    Widget? overridebottomNavigationBar,
   }) async {
     if (versionStatus != null && versionStatus.updateExist) {
       var route = MaterialPageRoute(

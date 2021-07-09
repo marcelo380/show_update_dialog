@@ -9,7 +9,7 @@ class DefaultUpdatePage extends StatefulWidget {
   String? buttonText;
   Color? buttonColor;
   Widget? bodyoverride;
-  BottomNavigationBar? bottomNavigationBar;
+  Widget? bottomNavigationBar;
 
   DefaultUpdatePage(
       {required this.currentVersion,

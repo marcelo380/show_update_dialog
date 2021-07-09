@@ -18,7 +18,36 @@ buttonColor    | showCustomDialogUpdate  | Pode passar uma cor para o botão de 
 buttonText    | showCustomDialogUpdate  | É utilizado para alterar o  texto do botão de atualização.
 forceUpdate    | ShowUpdateDialog, showCustomDialogUpdate  | Marcar `true` para esconder botão e impedir usuário de fechar a janela de atualização, forçando assim o usuário a atualizar o aplicativo. 
 bodyoverride    | showCustomDialogUpdate  | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
-bodyoverride    | showCustomDialogUpdate  | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
+overridebottomNavigationBar    | showCustomDialogUpdate  | Sobrescreve a bottomNavigationBar que contem o botão de atualizar. 
+
+
+## Variavel do status da versão
+
+Você pode utilizar informações da versão do seu app e loja de outras formas, para pegar eles basta fazer o seguinte:
+
+```dart
+    final versionCheck = ShowUpdateDialog(
+        iOSId: 'com.dts.freefireth',
+        androidId: 'com.dts.freefireth',
+        iOSAppStoreCountry: 'BR');
+
+    final VersionModel vs = await versionCheck.fetchVersionInfo();
+
+    print(vs.localVersion);
+    print(vs.appStoreLink);
+    print(vs.storeVersion);
+    print(vs.releaseNotes);
+```
+
+Variavel |  O que faz
+-------- |-------- | ---------------
+localVersion    | Retorna versão local do seu aplicativo.
+appStoreLink    | Retorna o link da loja baseado no sistema.
+storeVersion    | Ultima versão da loja de aplicativos.
+releaseNotes    | Retorna as notas de atualizações da loja de aplicativo.
+
+
+
 
 ### Para começar
 
@@ -35,8 +64,8 @@ Está é a forma de implementação mais simples, basta colocar no seu initState
   @override
   void initState() {
     final versionCheck = ShowUpdateDialog(
-        iOSId: 'br.com.sbsistemas.simplescteapp',
-        androidId: 'br.com.sbsistemas.simplescteapp',
+        iOSId: 'com.dts.freefireth',
+        androidId: 'com.dts.freefireth',
         iOSAppStoreCountry: 'BR');
 
     versionCheck.showSimplesDialog(context);
@@ -50,8 +79,8 @@ Está é uma das formas de alterar a tela de atualização.
 ```dart
 verifyVersion() async {
     final versionCheck = ShowUpdateDialog(
-        iOSId: 'br.com.sbsistemas.simplescteapp',
-        androidId: 'br.com.sbsistemas.simplescteapp',
+        iOSId: 'com.dts.freefireth',
+        androidId: 'com.dts.freefireth',
         iOSAppStoreCountry: 'BR');
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
@@ -68,12 +97,12 @@ verifyVersion() async {
 
 ### Implementação com widget customizado
 
-Implementando destá forma você pode refazer a tela da forma que preferir basta passar um Widget. 
+Implementando destá forma você pode refazer a tela da forma que preferir basta passar um Widget.
 ```dart
   verifyVersion() async {
     final versionCheck = ShowUpdateDialog(
-        iOSId: 'br.com.sbsistemas.simplescteapp',
-        androidId: 'br.com.sbsistemas.simplescteapp',
+        iOSId: 'com.dts.freefireth',
+        androidId: 'com.dts.freefireth',
         iOSAppStoreCountry: 'BR');
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
