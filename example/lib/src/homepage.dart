@@ -26,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   verifyVersion() async {
     final versionCheck = ShowUpdateDialog(
-        iOSId: 'br.com.sbsistemas.simplescteapp',
+        iOSId: 'com.yelp.yelpiphone',
         androidId: 'br.com.sbsistemas.simplescteapp',
         iOSAppStoreCountry: 'BR');
 
@@ -54,37 +54,40 @@ class _MyHomePageState extends State<MyHomePage> {
           versionStatus: vs,
           buttonText: "Update",
           buttonColor: Colors.green,
-          bodyoverride: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.update,
-                    size: 150,
-                    color: Colors.green,
-                  ),
-                ],
-              ),
-              Text(
-                "Please update your app",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-              ),
-              Text(
-                "Local version: ${vs.localVersion}",
-                style: TextStyle(fontSize: 17),
-              ),
-              Text(
-                "Store version: ${vs.storeVersion}",
-                style: TextStyle(fontSize: 17),
-              ),
-              SizedBox(height: 30),
-              Text(
-                "${vs.releaseNotes}",
-                style: TextStyle(fontSize: 15),
-              ),
-            ],
+          bodyoverride: Container(
+            margin: EdgeInsets.only(left: 20, right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.update,
+                      size: 150,
+                      color: Colors.green,
+                    ),
+                  ],
+                ),
+                Text(
+                  "Please update your app",
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                ),
+                Text(
+                  "Local version: ${vs.localVersion}",
+                  style: TextStyle(fontSize: 17),
+                ),
+                Text(
+                  "Store version: ${vs.storeVersion}",
+                  style: TextStyle(fontSize: 17),
+                ),
+                SizedBox(height: 30),
+                Text(
+                  "${vs.releaseNotes}",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ],
+            ),
           ),
         );
 

@@ -25,12 +25,16 @@ class ShowUpdateDialog {
   ///bloqueia o app até usuario atualizar
   bool? forceUpdate;
 
+  ///mostrar botão de atualizar, você pode ocultar para enviar um sua propria bottomNavigationBar
+  BottomNavigationBar? overridebottomNavigationBar;
+
   ShowUpdateDialog({
     this.androidId,
     this.iOSId,
     this.iOSAppStoreCountry,
     this.rememberInDays = 0,
     this.forceUpdate = false,
+    this.overridebottomNavigationBar,
   });
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
@@ -67,6 +71,7 @@ class ShowUpdateDialog {
           storeVersion: versionStatus.storeVersion,
           releaseNotes: versionStatus.releaseNotes,
           bodyoverride: bodyoverride,
+          bottomNavigationBar: overridebottomNavigationBar,
           storeAction: () => _launchAppStore(versionStatus.appStoreLink),
         ),
       );

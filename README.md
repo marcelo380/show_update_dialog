@@ -153,8 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   verifyVersion() async {
     final versionCheck = ShowUpdateDialog(
-        iOSId: 'br.com.sbsistemas.simplescteapp',
-        androidId: 'br.com.sbsistemas.simplescteapp',
+        iOSId: '329913454',
+        androidId: '329913454',
         iOSAppStoreCountry: 'BR');
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();

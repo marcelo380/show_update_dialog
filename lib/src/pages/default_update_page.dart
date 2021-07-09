@@ -9,16 +9,18 @@ class DefaultUpdatePage extends StatefulWidget {
   String? buttonText;
   Color? buttonColor;
   Widget? bodyoverride;
-  DefaultUpdatePage({
-    @required this.currentVersion,
-    @required this.storeVersion,
-    @required this.storeAction,
-    @required this.releaseNotes,
-    @required this.buttonText,
-    @required this.buttonColor,
-    @required this.title,
-    @required this.bodyoverride,
-  });
+  BottomNavigationBar? bottomNavigationBar;
+
+  DefaultUpdatePage(
+      {required this.currentVersion,
+      required this.storeVersion,
+      required this.storeAction,
+      required this.releaseNotes,
+      required this.buttonText,
+      required this.buttonColor,
+      required this.title,
+      required this.bodyoverride,
+      required this.bottomNavigationBar});
 
   @override
   _DefaultUpdatePageState createState() => _DefaultUpdatePageState();
@@ -66,11 +68,14 @@ class _DefaultUpdatePageState extends State<DefaultUpdatePage> {
                       fontWeight: FontWeight.w700),
                 ),
                 SizedBox(height: 2),
-                Text(
-                  widget.releaseNotes!,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey[600],
+                Container(
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  child: Text(
+                    widget.releaseNotes!,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey[600],
+                    ),
                   ),
                 ),
                 SizedBox(height: 15),
@@ -88,15 +93,17 @@ class _DefaultUpdatePageState extends State<DefaultUpdatePage> {
               ],
             )
           : widget.bodyoverride,
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ButtonUpdate(),
-          SizedBox(
-            height: MediaQuery.of(context).size.width * 0.5,
-          ),
-        ],
-      ),
+      bottomNavigationBar: widget.bottomNavigationBar == null
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ButtonUpdate(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.5,
+                ),
+              ],
+            )
+          : widget.bottomNavigationBar,
     );
   }
 
