@@ -32,6 +32,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
 
+    print(vs.localVersion);
+    print(vs.appStoreLink);
+    print(vs.storeVersion);
+    print(vs.releaseNotes);
+
     int typeDemo = 2; // 0 simples, 1 custom dialog, 2 override
 
     switch (typeDemo) {
