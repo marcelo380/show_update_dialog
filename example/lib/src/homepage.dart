@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
   verifyVersion() async {
     final versionCheck = ShowUpdateDialog(
         iOSId: 'com.yelp.yelpiphone',
-        androidId: 'br.com.sbsistemas.simplescteapp',
+        androidId: 'com.yelp.yelpiphone',
         iOSAppStoreCountry: 'BR');
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();

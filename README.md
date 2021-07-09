@@ -18,7 +18,7 @@ buttonColor    | showCustomDialogUpdate  | Pode passar uma cor para o botão de 
 buttonText    | showCustomDialogUpdate  | É utilizado para alterar o  texto do botão de atualização.
 forceUpdate    | ShowUpdateDialog, showCustomDialogUpdate  | Marcar `true` para esconder botão e impedir usuário de fechar a janela de atualização, forçando assim o usuário a atualizar o aplicativo. 
 bodyoverride    | showCustomDialogUpdate  | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
-
+bodyoverride    | showCustomDialogUpdate  | Sobrescreve todo o body do showCustomDialogUpdate, você pode passar um widget completo. 
 
 ### Para começar
 

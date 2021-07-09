@@ -25,16 +25,12 @@ class ShowUpdateDialog {
   ///bloqueia o app até usuario atualizar
   bool? forceUpdate;
 
-  ///mostrar botão de atualizar, você pode ocultar para enviar um sua propria bottomNavigationBar
-  BottomNavigationBar? overridebottomNavigationBar;
-
   ShowUpdateDialog({
     this.androidId,
     this.iOSId,
     this.iOSAppStoreCountry,
     this.rememberInDays = 0,
     this.forceUpdate = false,
-    this.overridebottomNavigationBar,
   });
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
@@ -60,6 +56,7 @@ class ShowUpdateDialog {
     Color buttonColor = const Color(0xFF1E88E5),
     bool forceUpdate = false,
     Widget? bodyoverride,
+    BottomNavigationBar? overridebottomNavigationBar,
   }) async {
     if (versionStatus != null && versionStatus.updateExist) {
       var route = MaterialPageRoute(
