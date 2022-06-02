@@ -33,3 +33,7 @@
 ## [1.0.9] - 09/07/2021
 
 * Implementa a documentação completa.
+
+## [1.0.10] - 02/06/2022
+
+* Corrige updater da playstore

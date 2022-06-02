@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:show_update_dialog/show_update_dialog.dart';
 
+void main() async {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(debugShowCheckedModeBanner: false, title: 'Teste', home: MyHomePage());
+  }
+}
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, this.title = ''}) : super(key: key);
 
@@ -25,10 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   verifyVersion() async {
-    final versionCheck = ShowUpdateDialog(
-        iOSId: 'com.dts.freefireth',
-        androidId: 'com.dts.freefireth',
-        iOSAppStoreCountry: 'BR');
+    final versionCheck = ShowUpdateDialog(iOSId: 'com.dts.freefireth', androidId: 'com.dts.freefireth', iOSAppStoreCountry: 'BR');
 
     final VersionModel vs = await versionCheck.fetchVersionInfo();
 
@@ -54,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
         break;
       case 2:
+        var _releaseNotes = vs.releaseNotes!.replaceAll("<br>", "\n");
         versionCheck.showCustomDialogUpdate(
           context: context,
           versionStatus: vs,
@@ -88,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  "${vs.releaseNotes}",
+                  "${_releaseNotes}",
                   style: TextStyle(fontSize: 15),
                 ),
               ],
